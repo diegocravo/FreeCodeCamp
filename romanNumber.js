@@ -1,0 +1,34 @@
+function convertToRoman(num) {
+
+    var actualNumber = num
+    var FinalResult = "";
+    var resultMult
+
+    var baseNumber = [
+        [1000, "M"],
+        [900, "CM"],
+        [500, "D"],
+        [400, "CD"],
+        [100, "C"],
+        [90, "XC"],
+        [50, "L"],
+        [40, "XL"],
+        [10, "X"],
+        [9, "IX"],
+        [5, "V"],
+        [4, "IV"],
+        [1, "I"]
+    ]
+
+    for (var x = 0; x < 13; x++){
+        if (actualNumber >= baseNumber[x][0]){
+            resultMult = Math.floor(actualNumber / baseNumber[x][0]);
+            FinalResult += (baseNumber[x][1].repeat(resultMult));
+            actualNumber -= (resultMult * baseNumber[x][0]) ;
+        }
+    }
+
+    return FinalResult;
+   }
+   
+console.log(convertToRoman(891));
